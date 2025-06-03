@@ -125,6 +125,36 @@ void updateScore() {
     refresh();
 }
 
+// AI trail 
+/*void autoMoveCar() {
+    // Najpierw koryguj pozycję, jeśli już poza granicami:
+    if(carPos < 18) carPos = 18;
+    if(carPos > 50) carPos = 50;
+
+    bool moveLeft = false;
+    bool moveRight = false;
+
+    for(int i = 0; i < 2; i++) {
+        if(enemyFlag[i] && enemyY[i] > 10 && enemyY[i] < 23) {  // wyczul na wroga bliżej
+            if(enemyX[i] >= carPos && carPos > 18) {
+                moveLeft = true;  // wróg po prawej → jedź w lewo
+            } else if(enemyX[i] + 4 <= carPos && carPos < 50) {
+                moveRight = true; // wróg po lewej → jedź w prawo
+            }
+        }
+    }
+
+    if(moveLeft && !moveRight) {
+        carPos -= 4;
+    } else if(moveRight && !moveLeft) {
+        carPos += 4;
+    }
+    
+    // Zapewnij granice ruchu
+    if(carPos < 18) carPos = 18;
+    if(carPos > 50) carPos = 50;
+}*/
+
 // Supports car movement logic
 void play() {
     carPos = WIN_WIDTH / 2 - 1;
@@ -167,6 +197,7 @@ void play() {
                 break;
             }
         }
+        //autoMoveCar();
 
         drawCar();
         drawEnemy(0);
